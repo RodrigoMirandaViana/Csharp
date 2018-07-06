@@ -1,0 +1,31 @@
+﻿<Window x:Class="Atleta.View.formCadastrarAtleta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Atleta.View"
+        mc:Ignorable="d"
+        Title="formCadastrarAtleta" Height="450" Width="800">
+    <Grid Margin="0,0,0,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Agenda;component/img/campo.jpg"/>
+        </Grid.Background>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="106,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" TextChanged="txtNome_TextChanged"/>
+        <TextBox x:Name="txtPosicao" HorizontalAlignment="Left" Height="23" Margin="328,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="23" Margin="581,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.ColumnSpan="3"/>
+        <Label Content="Nome" HorizontalAlignment="Left" Margin="58,42,0,0" VerticalAlignment="Top" Foreground="#FFF7F5F5"/>
+        <Label Content="Posição&#xD;&#xA;" HorizontalAlignment="Left" Margin="273,42,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.48,0.038" Foreground="#FFFFFBFB"/>
+        <Label Content="Time&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="540,45,0,0" VerticalAlignment="Top" Height="30" Foreground="White"/>
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="254,108,0,0" VerticalAlignment="Top" Width="52" Click="btnSalvar_Click" Height="21"/>
+        <Button x:Name="btnRemover" Content="Remover" HorizontalAlignment="Left" Margin="488,108,0,0" VerticalAlignment="Top" Width="52" Click="btnRemover_Click" Height="21"/>
+        <DataGrid x:Name="dgDados" HorizontalAlignment="Left" Height="191" Margin="92,195,0,0" VerticalAlignment="Top" Width="610" Grid.ColumnSpan="2" SelectionChanged="dgDados_SelectionChanged"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="328,107,0,0" VerticalAlignment="Top" Width="52" Click="btnBuscar_Click" RenderTransformOrigin="0.5,0.5" Height="21"/>
+        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="413,108,0,0" VerticalAlignment="Top" Width="52" Click="btnAlterar_Click" Height="20"/>
+        <Button x:Name="btnLimpar" Content="Limpar" Grid.Column="1" HorizontalAlignment="Left" Margin="59,73,0,0" VerticalAlignment="Top" Width="56" Grid.ColumnSpan="2" Click="btnLimpar_Click" Height="23" Opacity="0.7"/>
+    </Grid>
+</Window>
