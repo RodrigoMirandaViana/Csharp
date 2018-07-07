@@ -13,7 +13,7 @@ namespace Atleta.DAO
     {
         private static Context ctx = Singleton.Instance.Context;
 
-        public static bool AdicionarAtleta(Model.Atleta atleta)
+        public static bool AdicionarAtleta(Model.AtletaModel atleta)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace Atleta.DAO
             }
         }
 
-        public static bool RemoverAtleta(Model.Atleta atleta)
+        public static bool RemoverAtleta(Model.AtletaModel atleta)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Atleta.DAO
             }
         }
 
-        public static bool AlterarAtleta(Model.Atleta c)
+        public static bool AlterarAtleta(Model.AtletaModel c)
         {
             try
             {
@@ -58,6 +58,21 @@ namespace Atleta.DAO
             }
         }
 
-      
+        public static IList<AtletaModel> ListarAtletasPorNome(string nome)
+        {
+            return ctx.Atletas.Where(a => a.Nome.ToLower() == nome.ToLower()).ToList();
+        }
+
+        public static IList<AtletaModel> ListarAtletasPorPosicao(string posicao)
+        {
+            return ctx.Atletas.Where(a => a.Posicao.ToLower() == posicao.ToLower()).ToList();
+        }
+
+        public static IList<AtletaModel> ListarAtletasPorTime(string time)
+        {
+            return ctx.Atletas.Where(a => a.Time.ToLower() == time.ToLower()).ToList();
+        }
+
+
     }
 }

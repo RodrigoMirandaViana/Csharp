@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Atleta.Model
 {
-    class Atleta
+    public class AtletaModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }

@@ -23,7 +23,7 @@ namespace Atleta.DAO
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
         }
 
-        public DbSet<Model.Atleta> Atletas { get; set; }
+        public DbSet<Model.AtletaModel> Atletas { get; set; }
 
     }
     /**class Context : DbContext

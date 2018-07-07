@@ -12,7 +12,7 @@ namespace Atleta.View
     public partial class formCadastrarAtleta : Window
     {
         private static Context ctx = Singleton.Instance.Context;
-        private Model.Atleta c;
+        private Model.AtletaModel c;
         public formCadastrarAtleta()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Atleta.View
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            c = new Model.Atleta
+            c = new Model.AtletaModel
             {
                 Nome = txtNome.Text,
                 Posicao = txtPosicao.Text,
@@ -82,10 +82,7 @@ namespace Atleta.View
             {
                 try
                 {
-                    var consulta = from c in ctx.Atletas
-                                   where c.Nome.Contains(txtNome.Text)
-                                   select c;
-                    dgDados.ItemsSource = consulta.ToList();
+                    dgDados.ItemsSource = AtletaDAO.ListarAtletasPorNome(txtNome.Text);
                 }
                 catch
                 {
@@ -97,10 +94,8 @@ namespace Atleta.View
             {
                 try
                 {
-                    var consulta = from c in ctx.Atletas
-                                   where c.Posicao.Contains(txtPosicao.Text)
-                                   select c;
-                    dgDados.ItemsSource = consulta.ToList();
+
+                    dgDados.ItemsSource = AtletaDAO.ListarAtletasPorPosicao(txtPosicao.Text);
                 }
                 catch
                 {
@@ -112,10 +107,8 @@ namespace Atleta.View
             {
                 try
                 {
-                    var consulta = from c in ctx.Atletas
-                                   where c.Time.Contains(txtTime.Text)
-                                   select c;
-                    dgDados.ItemsSource = consulta.ToList();
+
+                    dgDados.ItemsSource = AtletaDAO.ListarAtletasPorTime(txtTime.Text);
                 }
                 catch
                 {
@@ -149,7 +142,7 @@ namespace Atleta.View
 
         private void dgDados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Model.Atleta atleta = (Model.Atleta) dgDados.SelectedItem;
+            Model.AtletaModel atleta = (Model.AtletaModel) dgDados.SelectedItem;
 
             txtNome.Text = atleta.Nome;
             txtPosicao.Text = atleta.Posicao;
@@ -163,6 +156,8 @@ namespace Atleta.View
             txtNome.Text = "";
             txtPosicao.Text = "";
             txtTime.Text = "";
+
+
         }
     }
 }
